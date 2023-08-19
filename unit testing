@@ -1,0 +1,30 @@
+import unittest
+
+class LyftFleet:
+    def __init__(self):
+        self.drivers = []
+
+    def add_driver(self, driver):
+        self.drivers.append(driver)
+
+    def get_driver_count(self):
+        return len(self.drivers)
+
+class TestLyftFleet(unittest.TestCase):
+
+    def setUp(self):
+        self.fleet = LyftFleet()
+
+    def test_add_driver(self):
+        self.fleet.add_driver("John Doe")
+        self.assertEqual(self.fleet.get_driver_count(), 1)
+
+    def test_get_driver_count(self):
+        self.assertEqual(self.fleet.get_driver_count(), 0)
+        self.fleet.add_driver("Jane Smith")
+        self.assertEqual(self.fleet.get_driver_count(), 1)
+        self.fleet.add_driver("Mike Johnson")
+        self.assertEqual(self.fleet.get_driver_count(), 2)
+
+if __name__ == '__main__':
+    unittest.main()
