@@ -1,0 +1,18 @@
+# test_lyft_fleet.py
+import unittest
+from lyft_fleet import Driver
+
+class TestDriver(unittest.TestCase):
+    def test_driver_creation(self):
+        driver = Driver("John Doe", "ABC123")
+        self.assertEqual(driver.name, "John Doe")
+        self.assertEqual(driver.license_plate, "ABC123")
+        self.assertEqual(driver.status, "active")
+
+    def test_set_driver_status(self):
+        driver = Driver("Jane Smith", "XYZ789")
+        driver.set_status("inactive")
+        self.assertEqual(driver.status, "inactive")
+
+if __name__ == '__main__':
+    unittest.main()
